@@ -10,7 +10,7 @@ chapter : false
 
 In this lab, you will learn the basic concepts and practice with Amazon IoT. You will practice connecting to a public server and a private server in a VPC.  
 
-![ConnectPrivate](/images/arc-log.png)  
+![ConnectPrivate](/images/sodo.jpg)  
 
 ### Content
 
