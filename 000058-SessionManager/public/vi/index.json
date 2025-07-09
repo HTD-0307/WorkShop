@@ -1,125 +1,125 @@
 [
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/",
+	"uri": "/vi/2-prerequiste/2.1-createec2/",
 	"title": "Chuẩn bị",
 	"tags": [],
 	"description": "",
 	"content": "Trong bước này, chúng ta sẽ cần tạo một DynamoDB. Sau đó tạo 1 gải lập cảm biến để gửi dử liệu đến IoT Core.\nTổng quan kiến trúc sau khi các bạn hoàn tất bước này sẽ như sau:\nNội dung Tạo DynamoDB Tạo Giả lập cảm biến "
 },
 {
-	"uri": "//localhost:1313/vi/1-introduce/",
+	"uri": "/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
 	"content": "AWS IoT Core là dịch vụ của Amazon Web Services (AWS) giúp kết nối các thiết bị IoT (Internet of Things) với đám mây, cho phép thu thập, xử lý và phân tích dữ liệu từ các thiết bị này. Dịch vụ này giúp bạn dễ dàng triển khai các ứng dụng IoT với khả năng mở rộng cao và độ tin cậy mạnh mẽ.\nVCác tính năng chính của AWS IoT Core bao gồm:\nHỗ trợ kết nối và quản lý hàng triệu thiết bị IoT, từ cảm biến, máy móc đến các thiết bị di động. Các thiết bị có thể gửi dữ liệu lên AWS IoT Core qua giao thức như MQTT (Message Queuing Telemetry Transport), HTTP, hoặc WebSocket. Dữ liệu sau đó có thể được xử lý và chuyển tiếp đến các dịch vụ AWS khác như AWS Lambda, DynamoDB, hoặc S3. Cung cấp khả năng quản lý các thiết bị từ việc định danh, bảo mật, cho đến việc bảo vệ dữ liệu. Hỗ trợ các cơ chế bảo mật mạnh mẽ như xác thực thiết bị, mã hóa dữ liệu từ thiết bị đến đám mây, và phân quyền truy cập cho người dùng và thiết bị. Có tính năng Rules Engine, cho phép bạn định nghĩa các quy tắc để chuyển tiếp dữ liệu đến các dịch vụ AWS khác (như AWS Lambda, S3, DynamoDB) dựa trên các điều kiện xác định trước. Có thể tích hợp dễ dàng với các dịch vụ khác như Amazon Kinesis, Amazon S3, Amazon DynamoDB, Amazon Lambda, và AWS Machine Learning để phân tích và xử lý dữ liệu. Nhờ vào các tính năng này, AWS IoT Core trở thành nền tảng lý tưởng cho việc xây dựng và triển khai các ứng dụng IoT quy mô lớn.\n"
 },
 {
-	"uri": "//localhost:1313/vi/",
+	"uri": "/vi/",
 	"title": "Session Management",
 	"tags": [],
 	"description": "",
 	"content": "Giám sát kho hàng thông minh với AWS IoT Core Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Amazon IoT. Thực hành tạo kết nối đến máy chủ public và máy chủ private trong VPC.\nNội dung Giới thiệu Các bước chuẩn bị Cài đặt và triển khai Lambda Cấu hình AWS IoT Core Tạo SNS S3 Kết quả thực nghiệm Video Demo ọn dẹp tài nguyên "
 },
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.1-createdynamodb/",
+	"uri": "/vi/2-prerequiste/2.1-createec2/2.1.1-createdynamodb/",
 	"title": "Tạo DynamoDB",
 	"tags": [],
 	"description": "",
 	"content": "Tạo DynamoDB Truy cập Amazon DynamoDB Click Create table. Tại trang Create table. Tại mục Table name điền Inventory. Tại mục Subnet name điền ProductID. Tại mục Partition key điền Timestamp. Kéo xuống cuối trang , click Create table. "
 },
 {
-	"uri": "//localhost:1313/vi/3-lambda/3.1-lambda-function/",
+	"uri": "/vi/3-lambda/3.1-lambda-function/",
 	"title": "Tạo Lambda function",
 	"tags": [],
 	"description": "",
 	"content": " Truy cập vào giao diện quản trị của dịch vụ Lambda. Click chọn Create Function. Tại trang Create function. Click chọn Author from scratch. Tại mục Function name điền ProcessInventoryData. Tại mục runtime chọn python 3.9. Tại mục Execution role chọn Use an existing role Tại mục Existing role chọn role đã tạo ở IAM lúc trước. Kéo xuống cuối trang chọn Create function "
 },
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/",
+	"uri": "/vi/2-prerequiste/",
 	"title": "Các bước chuẩn bị",
 	"tags": [],
 	"description": "",
 	"content": "\nBạn cần tạo sẵn 1 giả lập cảm biến để thực hiện bài thực hành này.\nTrước khi triển khai AWS IoT Core, việc chuẩn bị kỹ lưỡng môi trường phát triển, công cụ hỗ trợ, và tài nguyên là bước quan trọng để đảm bảo hiệu quả và tiết kiệm chi phí.\nNội dung Chuẩn bị Tạo IAM Role "
 },
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.2-createsimulateddevice/",
+	"uri": "/vi/2-prerequiste/2.1-createec2/2.1.2-createsimulateddevice/",
 	"title": "Tạo Cảm biến giả lập",
 	"tags": [],
 	"description": "",
 	"content": "Tạo Cảm biến giả lập Tải Python Cài đặt file .exe vừa tải về. Vào terminal nhập dòng lệnh: python \u0026ndash;verion Tải AWS Command Line Interface Chạy file cài đặt .msi Kiểm tra bằng lệnh: aws \u0026ndash;version Cấu Hình Tài Khoản AWS Vào AWS Management Console, vào dịch vụ IAM Click My security credentials Khi trang My security credentials xuất hiện, click Create access key. Khi trang Create access key xuất hiện: Click vào ô chọn I understand creating a root access key is not a best practice, but I still want to create one Click Create access key. Download file .csv về máy. Mở terminal, chạy lệnh aws configure: Nhập Access Key, Secret Key từ file .csv vừa tải Region: us-east-1 Output format: json Cài Đặt Thư Viện boto3 Mở terminal, cài đặt thư viện boto3 bằng lệnh: pip install boto3 Tạo file sensor_simulator.py trên thiết bị giả lập Sao chép đoạn code dưới vào file py vừa tạo: import paho.mqtt.client as mqtt import json import time import random from datetime import datetime, timezone # Cấu hình AWS IoT Core iot_endpoint = \u0026#34;a2tzdij2wt8lg0-ats.iot.us-east-1.amazonaws.com\u0026#34; port = 8883 topic = \u0026#34;inventory/sensor1/data\u0026#34; cert_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e-certificate.pem.crt\u0026#34; key_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e-private.pem.key\u0026#34; ca_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/AmazonRootCA1.pem\u0026#34; def on_connect(client, userdata, flags, rc, properties=None): \u0026#34;\u0026#34;\u0026#34;Callback khi kết nối với broker MQTT.\u0026#34;\u0026#34;\u0026#34; if rc == 0: print(\u0026#34;Kết nối thành công với AWS IoT Core\u0026#34;) client.subscribe(topic, qos=1) else: print(f\u0026#34;Kết nối thất bại với mã lỗi {rc}\u0026#34;) def on_publish(client, userdata, mid): \u0026#34;\u0026#34;\u0026#34;Callback khi tin nhắn được gửi thành công.\u0026#34;\u0026#34;\u0026#34; print(f\u0026#34;Tin nhắn {mid} được gửi thành công\u0026#34;) def on_disconnect(client, userdata, rc): \u0026#34;\u0026#34;\u0026#34;Callback khi mất kết nối.\u0026#34;\u0026#34;\u0026#34; print(f\u0026#34;Mất kết nối với mã lỗi {rc}\u0026#34;) def generate_inventory_data(): \u0026#34;\u0026#34;\u0026#34;Tạo dữ liệu mẫu cho hàng tồn kho.\u0026#34;\u0026#34;\u0026#34; return { \u0026#34;product_id\u0026#34;: f\u0026#34;PROD-{random.randint(1, 100)}\u0026#34;, \u0026#34;quantity\u0026#34;: random.randint(0, 30), # Tạo số lượng thấp để kiểm tra cảnh báo \u0026#34;warehouse_id\u0026#34;: \u0026#34;WH1\u0026#34;, \u0026#34;timestamp\u0026#34;: datetime.now(timezone.utc).isoformat() } # Khởi tạo client MQTT client = mqtt.Client(client_id=\u0026#34;SensorSimulator\u0026#34;, protocol=mqtt.MQTTv5) client.tls_set(ca_file, cert_file, key_file) client.on_connect = on_connect client.on_publish = on_publish client.on_disconnect = on_disconnect # Kết nối đến AWS IoT Core try: client.connect(iot_endpoint, port, keepalive=120) # Tăng keepalive để ổn định kết nối except Exception as e: print(f\u0026#34;Kết nối thất bại: {e}\u0026#34;) exit(1) # Bắt đầu vòng lặp để xử lý kết nối và tin nhắn client.loop_start() # Vòng lặp xuất bản dữ liệu try: while True: data = generate_inventory_data() payload = json.dumps(data) result = client.publish(topic, payload, qos=1) if result.rc == mqtt.MQTT_ERR_SUCCESS: print(f\u0026#34;Published: {payload}\u0026#34;) else: print(f\u0026#34;Failed to publish: {result.rc}\u0026#34;) time.sleep(60) # Gửi dữ liệu mỗi 60 giây except KeyboardInterrupt: print(\u0026#34;Dừng script\u0026#34;) client.loop_stop() client.disconnect() Thay đường dẫn đến các file cert_file key_file ca_file đến các file tải về sau khi tạo AWS IoT Core "
 },
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/2.2-createiamrole/",
+	"uri": "/vi/2-prerequiste/2.2-createiamrole/",
 	"title": "Tạo IAM Role",
 	"tags": [],
 	"description": "",
 	"content": "Tạo IAM Role Trong bước này chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này sẽ được gán policy Lambda, đây là policy cho phép Lambda thực thi các hoạt động trong dự án.\nTruy cập vào giao diện quản trị dịch vụ IAM Ở thanh điều hướng bên trái, click Roles. Click Create role. Click AWS service và click Lambda. Click Next. Trong ô Search, điền lần lượt AWSLambdaExecute, AmazonDynamoDBFullAccess, AmazonSNSFullAccess, AmazonS3FullAccess và ấn phím Enter để tìm kiếm policy này. Click chọn policy AWSLambdaExecute. Click chọn policy AmazonDynamoDBFullAccess. Click chọn policy AmazonSNSFullAccess. Click chọn policy AmazonS3FullAccess. Click Next Click Next=. Đặt tên cho Role là Lambda ở Role Name Click Create Role . Tiếp theo chúng ta sẽ cài đặt và triển khai Lambda.\n"
 },
 {
-	"uri": "//localhost:1313/vi/3-lambda/3.2-lamda-code/",
+	"uri": "/vi/3-lambda/3.2-lamda-code/",
 	"title": "Viết code xử lý cho Lambda",
 	"tags": [],
 	"description": "",
 	"content": "Để Lambda có thể xử lý dữ liệu nhận được từu IoT Core, chúng ta cần viết 1 hàm xử lý các tác vụ:lưu dữ liệu vào DynamoDB, gửi cảnh báo khi dữ lieuj vượt ngưỡng.\nTruy cập vào giao diện quản trị của dịch vụ Lambda. Click chọn Function. Click chọn function vừa tạo Khi mục ProcessInventoryData xuất hiện Chọn mục Code Dán đoạn code này: import json import boto3 import time from decimal import Decimal # Khởi tạo các client AWS dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) s3 = boto3.client(\u0026#39;s3\u0026#39;) sns = boto3.client(\u0026#39;sns\u0026#39;) # Cấu hình TABLE_NAME = \u0026#39;Inventory\u0026#39; BUCKET_NAME = \u0026#39;iot-log-2025\u0026#39; SNS_TOPIC_ARN = \u0026#39;arn:aws:sns:us-east-1:922456364996:InventoryAlerts\u0026#39; # Thay bằng ARN của SNS Topic QUANTITY_THRESHOLD = 20 def lambda_handler(event, context): print(f\u0026#34;Received event: {json.dumps(event)}\u0026#34;) try: # Lấy dữ liệu từ IoT Core product_id = event[\u0026#39;product_id\u0026#39;] quantity = event[\u0026#39;quantity\u0026#39;] warehouse_id = event[\u0026#39;warehouse_id\u0026#39;] timestamp = event[\u0026#39;timestamp\u0026#39;] print(f\u0026#34;Processing: product_id={product_id}, quantity={quantity}\u0026#34;) # Lưu dữ liệu vào DynamoDB table = dynamodb.Table(TABLE_NAME) table.put_item( Item={ \u0026#39;product_id\u0026#39;: product_id, \u0026#39;timestamp\u0026#39;: timestamp, \u0026#39;quantity\u0026#39;: Decimal(str(quantity)), \u0026#39;warehouse_id\u0026#39;: warehouse_id } ) print(f\u0026#34;Successfully saved to DynamoDB\u0026#34;) # Tạo báo cáo JSON và tải lên S3 report = { \u0026#39;product_id\u0026#39;: product_id, \u0026#39;quantity\u0026#39;: quantity, \u0026#39;warehouse_id\u0026#39;: warehouse_id, \u0026#39;timestamp\u0026#39;: timestamp, \u0026#39;status\u0026#39;: \u0026#39;Low\u0026#39; if quantity \u0026lt; QUANTITY_THRESHOLD else \u0026#39;Normal\u0026#39; } s3_key = f\u0026#39;reports/{product_id}_{timestamp}.json\u0026#39; s3.put_object( Bucket=BUCKET_NAME, Key=s3_key, Body=json.dumps(report) ) print(f\u0026#34;Successfully uploaded to S3: {s3_key}\u0026#34;) # Gửi cảnh báo qua SNS nếu số lượng thấp if quantity \u0026lt; QUANTITY_THRESHOLD: message = f\u0026#34;Cảnh báo: Sản phẩm {product_id} tại kho {warehouse_id} có số lượng thấp ({quantity}) vào thời điểm {timestamp}.\u0026#34; sns.publish( TopicArn=SNS_TOPIC_ARN, Message=message, Subject=\u0026#39;Cảnh báo Hàng tồn kho Thấp\u0026#39; ) print(f\u0026#34;Sent SNS alert for low inventory\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;Xử lý dữ liệu thành công\u0026#39;) } except Exception as e: print(f\u0026#34;Lỗi: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(f\u0026#34;Lỗi: {str(e)}\u0026#34;) } Click Deploy để update cho Lambda "
 },
 {
-	"uri": "//localhost:1313/vi/3-lambda/",
+	"uri": "/vi/3-lambda/",
 	"title": "Cài đặt và triển khai Lambda",
 	"tags": [],
 	"description": "",
 	"content": "Trong bước này, chúng ta sẽ cài đặt cấu hình cho Lambda.\nNội dung 3.1. Tạo Lambda function 3.2. Viết code xử lý cho Lambda\n"
 },
 {
-	"uri": "//localhost:1313/vi/4-iot-core/",
+	"uri": "/vi/4-iot-core/",
 	"title": "Cấu hình AWS IoT Core",
 	"tags": [],
 	"description": "",
 	"content": "Để có thể nhận được dữ liệu từ nguồn cảm biến tự động, chúng ta cần phải cài đặt cấu hình cho AWS IoT Core. Truy cập vào giao diện quản trị của dịch vụ AWS IoT Core.\nTạo Thing Chọn Thing Click vào Create thing Tại mục Number of thing to create Chọn Create single thing Chọn Next Khi mục Specify thing properties xuất hiện Tại mục Thing name điền InventorySensor Chọn Next Tại mục Device certificate chọn Auto-generate a new certificate Chọn Next Chọn create thing Downloal các file trong bảng Downloal certificates and key về máy Tạo các chính sách Tại mục Security, chọn Policies\nChọn Create policy Tại Policy name điền IoTInventoryPolicy\nTại Policy action:\nChọn iot:Connect Chọn iot:Publish Chọn iot:Subscribe Chọn iot:Receive Tại Policy resource điền arn:aws:sns:us-east-1:922456364996:InventoryAlerts Chọn mục Certificates\nClick chọn Certificates của dự án Chọn Action và chọn Attach policy Tại Policies chọn IoTInventoryPolicy ChọnAttach policies Tiếp tục chọn Attach to things Tại Things chọn InventorySensor1 Chọn Attach to thing Tạo rule Chọn Message routing Chọn Rule Chọn Create rule Tại Rule nameđiền InventoryRule Chọn Next Tại SQL statement điền SELECT * FROM \u0026lsquo;inventory/sensor1/data\u0026rsquo; Chọn Next Tại Action1 chọn Lambda Tại Lambda function chọn ProcessInventoryData Tại Lambda function version chọn $LATEST Chọn Next Chọn Create "
 },
 {
-	"uri": "//localhost:1313/vi/5-sns/",
+	"uri": "/vi/5-sns/",
 	"title": "Tạo SNS",
 	"tags": [],
 	"description": "",
 	"content": "Tạo SNS Truy cập giao diện quản trị dịch vụ SNS Click Topic. Click Create topic. Tại trang Create Topic. Tại mục Type chọn Standard. Tại mục Name điền : InventoryAlerts. Click Create Topic. Tạo Subscriptions Click Subscriptions\nChọn Create Subscriptions Khi xuất hiện mục Create Subscriptions\nTại Topic ARN chọn arn:aws:sns:us-east-1:922456364996:InventoryAlerts:f2b3d4d3-794d-42f4-a76e-5974a6514506 tại Protocol chọn Email Tại Endpoint nhập Email nhận cảnh báo. Chọn Create Subscriptions\nVào email đăng ký SNS kiểm tra để kích hoạt. "
 },
 {
-	"uri": "//localhost:1313/vi/6-s3/",
+	"uri": "/vi/6-s3/",
 	"title": "Cài đặt S3",
 	"tags": [],
 	"description": "",
 	"content": " Truy cập giao diện quản trị dịch vụ S3 Chọn Create bucket Tại Bucket name điền iot-log-2025 Click vào ô Block all public access Kéo xuống cuối trang chọn Create bucket "
 },
 {
-	"uri": "//localhost:1313/vi/7-demo/",
+	"uri": "/vi/7-demo/",
 	"title": "Kết quả thực nghiệm",
 	"tags": [],
 	"description": "",
 	"content": " Chạy cảm biến giả lập\nVào Terminal dẩn đến thu mục file sensor_simulator.py Chạy dòng lệnh: python sensor_simulator.py Vào AWS IoT kiểm tra dữ liệu\nTruy cập giao diện quản trị dịch vụ AWS IoT Core Chọn MQTT test client Tại Topic filter điền inventory/sensor1/data Chọn Subscribe Chọn Publish Kéo xuống ta có thể thấy được dữ liệu nhận được từ thiết bị cảm biến gửi đến IoT Core. Kiểm tra log trong CloudWatch\nTruy cập giao diện quản trị dịch vụ Cloudwatch Chọn Log groups Chọn /aws/lambda/ProcessInventoryData Tại Log Stream, chọn Log stream cập nhật mới nhất Kiểm tra dữ liệu trong DynamoDB\nTruy cập giao diện quản trị dịch vụ DynamoDB Chọn Explore items Chọn table Inventory Click Run, trong bảng Table: Inventory - Items returned sẽ chứa đầy đủ dữ liệu từ cảm biến gửi đến. Kiểm tra gmail\nMở gmail đã đăng ký dịch vụ SNS SNS sẽ gửi cảnh báo về mail khi nhận được sản phẩm có số lượng thấp hơn 20. "
 },
 {
-	"uri": "//localhost:1313/vi/8-video-demo/",
+	"uri": "/vi/8-video-demo/",
 	"title": "Video Demo",
 	"tags": [],
 	"description": "",
 	"content": " Video demo kết quả bài lab Trong phần Video Demo tham khảo, bạn có thể thấy được kết quả của bài lab, dữ liệu gửi lên từ cảm biến đến IoT Core, Lambda xử lý các công việc và SNS gửi thông báo về mail nếu có dữ liệu vượt ngưỡng cho phép.\n**Link demo kết quả: tại đây\n"
 },
 {
-	"uri": "//localhost:1313/vi/9-clear/",
+	"uri": "/vi/9-clear/",
 	"title": "Dọn dẹp tài nguyên",
 	"tags": [],
 	"description": "",
 	"content": " Dọn dẹp dịch vụ IAM\nTại thanh tìm kiếm, nhập IAM Tại trang dịch vụ IAM, bên trái thanh Navigation Panel chọn Role Tại trang Roles, tìm kiếm Lambda, tích chọn Lambda Bấm button Delete, nhập tên Role: LambdaAnalyzeRole Dọn dẹp dịch vụ Lambda\nTại thanh tìm kiếm, nhập Lambda Tại trang dịch vụ Lambda, bên trái thanh Navigation Panel chọn Function Tích chọn ProcessInventoryData Chọn Actions, chọn Delete Tại Delete function, nhập confirm Dọn dẹp dịch vụ DynamoDB Tại thanh tìm kiếm, nhập DynamoDB Tại trang dịch vụ DynamoDB, bên trái thanh Navigation Panel chọn Table Tích chọn Iventory Chọn Delete, nhập confirm Dọn dẹp dịch vụ S3 Tại thanh tìm kiếm, nhập S3 Tại trang dịch vụ S3, bên trái thanh Navigation Panel chọn General purpose buckets Tích chọn iot-log-2025 Chọn Empty. nhập permanently delete Chọn Delete, nhập iot-log-2025 Dọn dẹp AWS IoT Core Tại thanh tìm kiếm, nhập AWS IoT Core Tại trang dịch vụ AWS IoT Core, bên trái thanh Navigation Panel chọn Things Chọn InventorySensor1 Chọn Delete, nhập InventorySensor1 Tại Tại trang dịch vụ AWS IoT Core, bên trái thanh Navigation Panel chọn Rules Chọn InventoryRule Chọn Delete, nhập InventoryRule Tại Tại trang dịch vụ AWS IoT Core, bên trái thanh Navigation Panel chọn Policies Chọn IoTInventoryPolicy Chọn Delete, nhập IoTInventoryPolicy Tại Tại trang dịch vụ AWS IoT Core, bên trái thanh Navigation Panel chọn Certificates Chọn 7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e Chọn Action, chọn Delete, nhập delete "
 },
 {
-	"uri": "//localhost:1313/vi/categories/",
+	"uri": "/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/vi/tags/",
+	"uri": "/vi/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

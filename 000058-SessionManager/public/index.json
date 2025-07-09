@@ -1,125 +1,125 @@
 [
 {
-	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/2.1.1-createdynamodb/",
+	"uri": "/2-prerequiste/2.1-createec2/2.1.1-createdynamodb/",
 	"title": "Create DynamoDB",
 	"tags": [],
 	"description": "",
 	"content": "Create DynamoDB Access Amazon DynamoDB Click Create table. On the Create table page. In the Table name field, enter Inventory. In the Subnet name field, enter ProductID. In the Partition key field, enter Timestamp. Scroll to the bottom of the page, click Create table. "
 },
 {
-	"uri": "//localhost:1313/3-lambda/3.1-lambda-function/",
+	"uri": "/3-lambda/3.1-lambda-function/",
 	"title": "Create Lambda Function",
 	"tags": [],
 	"description": "",
 	"content": " Access the Lambda service management interface. Click on Create Function. On the Create function page. Click on Author from scratch. In the Function name field, enter ProcessInventoryData. In the runtime field, select python 3.9. In the Execution role field, select Use an existing role. In the Existing role field, select the role created in IAM earlier. Scroll to the bottom of the page and select Create function.\n"
 },
 {
-	"uri": "//localhost:1313/1-introduce/",
+	"uri": "/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
 	"content": "AWS IoT Core is a service provided by Amazon Web Services (AWS) that helps connect IoT (Internet of Things) devices to the cloud, allowing the collection, processing, and analysis of data from these devices. This service makes it easy to deploy IoT applications with high scalability and strong reliability.\nThe main features of AWS IoT Core include:\nSupports connecting and managing millions of IoT devices, from sensors, machinery to mobile devices. Devices can send data to AWS IoT Core via protocols such as MQTT (Message Queuing Telemetry Transport), HTTP, or WebSocket. The data can then be processed and forwarded to other AWS services like AWS Lambda, DynamoDB, or S3. Provides the ability to manage devices, from identification, security to data protection. Supports strong security mechanisms like device authentication, data encryption from device to cloud, and access control for users and devices. Has a Rules Engine feature, allowing you to define rules to forward data to other AWS services (such as AWS Lambda, S3, DynamoDB) based on predefined conditions. Easily integrates with other services such as Amazon Kinesis, Amazon S3, Amazon DynamoDB, Amazon Lambda, and AWS Machine Learning for data analysis and processing. With these features, AWS IoT Core becomes an ideal platform for building and deploying large-scale IoT applications.\n"
 },
 {
-	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/",
+	"uri": "/2-prerequiste/2.1-createec2/",
 	"title": "Preparation",
 	"tags": [],
 	"description": "",
 	"content": "In this step, we will need to create a DynamoDB. Then, create a simulated sensor to send data to IoT Core.\nThe architecture overview after you complete this step will be as follows:\nContent Create DynamoDB Create Simulated Device "
 },
 {
-	"uri": "//localhost:1313/",
+	"uri": "/",
 	"title": "Session Management",
 	"tags": [],
 	"description": "",
 	"content": "Smart Warehouse Monitoring with AWS IoT Core Overview In this lab, you will learn the basic concepts and practice with Amazon IoT. You will practice connecting to a public server and a private server in a VPC.\nContent Introduction Preparation Steps Installing and Deploying Lambda Configuring AWS IoT Core Creating SNS S3 Experimental Results Video Demo Cleaning Up Resources "
 },
 {
-	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/2.1.2-createsimulateddevice/",
+	"uri": "/2-prerequiste/2.1-createec2/2.1.2-createsimulateddevice/",
 	"title": "Create a Simulated Sensor",
 	"tags": [],
 	"description": "",
 	"content": "Create a Simulated Sensor Download Python Install the downloaded .exe file. Open terminal and enter the command: python \u0026ndash;version Download AWS Command Line Interface Run the .msi installation file. Check with the command: aws \u0026ndash;version AWS Account Configuration Go to the AWS Management Console, then to the IAM service Click My security credentials\nWhen the My security credentials page appears, click Create access key. When the Create access key page appears: Check the box I understand creating a root access key is not a best practice, but I still want to create one Click Create access key. Download the .csv file to your machine.\nOpen the terminal and run the command aws configure: Enter the Access Key and Secret Key from the downloaded .csv file Region: us-east-1 Output format: json\nInstall the boto3 Library Open the terminal and install the boto3 library using the command: pip install boto3\nCreate the file sensor_simulator.py on the emulator device Copy the code snippet below into the newly created py file: import paho.mqtt.client as mqtt import json import time import random from datetime import datetime, timezone # Cấu hình AWS IoT Core iot_endpoint = \u0026#34;a2tzdij2wt8lg0-ats.iot.us-east-1.amazonaws.com\u0026#34; port = 8883 topic = \u0026#34;inventory/sensor1/data\u0026#34; cert_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e-certificate.pem.crt\u0026#34; key_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e-private.pem.key\u0026#34; ca_file = \u0026#34;C:/Users/HUYNHDO/Desktop/ThucTap/WorkShop/IoT/AmazonRootCA1.pem\u0026#34; def on_connect(client, userdata, flags, rc, properties=None): \u0026#34;\u0026#34;\u0026#34;Callback khi kết nối với broker MQTT.\u0026#34;\u0026#34;\u0026#34; if rc == 0: print(\u0026#34;Kết nối thành công với AWS IoT Core\u0026#34;) client.subscribe(topic, qos=1) else: print(f\u0026#34;Kết nối thất bại với mã lỗi {rc}\u0026#34;) def on_publish(client, userdata, mid): \u0026#34;\u0026#34;\u0026#34;Callback khi tin nhắn được gửi thành công.\u0026#34;\u0026#34;\u0026#34; print(f\u0026#34;Tin nhắn {mid} được gửi thành công\u0026#34;) def on_disconnect(client, userdata, rc): \u0026#34;\u0026#34;\u0026#34;Callback khi mất kết nối.\u0026#34;\u0026#34;\u0026#34; print(f\u0026#34;Mất kết nối với mã lỗi {rc}\u0026#34;) def generate_inventory_data(): \u0026#34;\u0026#34;\u0026#34;Tạo dữ liệu mẫu cho hàng tồn kho.\u0026#34;\u0026#34;\u0026#34; return { \u0026#34;product_id\u0026#34;: f\u0026#34;PROD-{random.randint(1, 100)}\u0026#34;, \u0026#34;quantity\u0026#34;: random.randint(0, 30), # Tạo số lượng thấp để kiểm tra cảnh báo \u0026#34;warehouse_id\u0026#34;: \u0026#34;WH1\u0026#34;, \u0026#34;timestamp\u0026#34;: datetime.now(timezone.utc).isoformat() } # Khởi tạo client MQTT client = mqtt.Client(client_id=\u0026#34;SensorSimulator\u0026#34;, protocol=mqtt.MQTTv5) client.tls_set(ca_file, cert_file, key_file) client.on_connect = on_connect client.on_publish = on_publish client.on_disconnect = on_disconnect # Kết nối đến AWS IoT Core try: client.connect(iot_endpoint, port, keepalive=120) # Tăng keepalive để ổn định kết nối except Exception as e: print(f\u0026#34;Kết nối thất bại: {e}\u0026#34;) exit(1) # Bắt đầu vòng lặp để xử lý kết nối và tin nhắn client.loop_start() # Vòng lặp xuất bản dữ liệu try: while True: data = generate_inventory_data() payload = json.dumps(data) result = client.publish(topic, payload, qos=1) if result.rc == mqtt.MQTT_ERR_SUCCESS: print(f\u0026#34;Published: {payload}\u0026#34;) else: print(f\u0026#34;Failed to publish: {result.rc}\u0026#34;) time.sleep(60) # Gửi dữ liệu mỗi 60 giây except KeyboardInterrupt: print(\u0026#34;Dừng script\u0026#34;) client.loop_stop() client.disconnect() Change the paths to the files cert_file key_file ca_file to the files downloaded after creating AWS IoT Core. "
 },
 {
-	"uri": "//localhost:1313/2-prerequiste/2.2-createiamrole/",
+	"uri": "/2-prerequiste/2.2-createiamrole/",
 	"title": "Create IAM Role",
 	"tags": [],
 	"description": "",
 	"content": "Create IAM Role In this step, we will proceed to create IAM Role. In this IAM Role, the policy AmazonSSMManagedInstanceCore will be assigned, this is the policy that allows the EC2 server to communicate with the Session Manager.\nGo to IAM service administration interface In the left navigation bar, click Roles. Click Create role. Click AWS service and click EC2. Click Next: Permissions. In the Search box, enter AmazonSSMManagedInstanceCore and press Enter to search for this policy. Click the policy AmazonSSMManagedInstanceCore. Click Next: Tags. Click Next: Review. Name the Role SSM-Role in Role Name Click Create Role . Next, we will make the connection to the EC2 servers we created with Session Manager.\n"
 },
 {
-	"uri": "//localhost:1313/2-prerequiste/",
+	"uri": "/2-prerequiste/",
 	"title": "Preparation Steps",
 	"tags": [],
 	"description": "",
 	"content": "\nYou need to create a sensor simulator in advance to carry out this practice.\nBefore deploying AWS IoT Core, thoroughly preparing the development environment, supporting tools, and resources is a crucial step to ensure efficiency and cost-effectiveness.\nContent Preparation Create IAM Role "
 },
 {
-	"uri": "//localhost:1313/3-lambda/3.2-lamda-code/",
+	"uri": "/3-lambda/3.2-lamda-code/",
 	"title": "Write Processing Code for Lambda",
 	"tags": [],
 	"description": "",
 	"content": "To enable Lambda to process data received from IoT Core, we need to write a function to handle tasks: storing data in DynamoDB and sending alerts when the data exceeds thresholds.\nAccess the Lambda service management interface. Click on Function. Click on the function you just created.\nWhen the ProcessInventoryData section appears, Select the Code section. Paste this code: import json import boto3 import time from decimal import Decimal # Khởi tạo các client AWS dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) s3 = boto3.client(\u0026#39;s3\u0026#39;) sns = boto3.client(\u0026#39;sns\u0026#39;) # Cấu hình TABLE_NAME = \u0026#39;Inventory\u0026#39; BUCKET_NAME = \u0026#39;iot-log-2025\u0026#39; SNS_TOPIC_ARN = \u0026#39;arn:aws:sns:us-east-1:922456364996:InventoryAlerts\u0026#39; # Thay bằng ARN của SNS Topic QUANTITY_THRESHOLD = 20 def lambda_handler(event, context): print(f\u0026#34;Received event: {json.dumps(event)}\u0026#34;) try: # Lấy dữ liệu từ IoT Core product_id = event[\u0026#39;product_id\u0026#39;] quantity = event[\u0026#39;quantity\u0026#39;] warehouse_id = event[\u0026#39;warehouse_id\u0026#39;] timestamp = event[\u0026#39;timestamp\u0026#39;] print(f\u0026#34;Processing: product_id={product_id}, quantity={quantity}\u0026#34;) # Lưu dữ liệu vào DynamoDB table = dynamodb.Table(TABLE_NAME) table.put_item( Item={ \u0026#39;product_id\u0026#39;: product_id, \u0026#39;timestamp\u0026#39;: timestamp, \u0026#39;quantity\u0026#39;: Decimal(str(quantity)), \u0026#39;warehouse_id\u0026#39;: warehouse_id } ) print(f\u0026#34;Successfully saved to DynamoDB\u0026#34;) # Tạo báo cáo JSON và tải lên S3 report = { \u0026#39;product_id\u0026#39;: product_id, \u0026#39;quantity\u0026#39;: quantity, \u0026#39;warehouse_id\u0026#39;: warehouse_id, \u0026#39;timestamp\u0026#39;: timestamp, \u0026#39;status\u0026#39;: \u0026#39;Low\u0026#39; if quantity \u0026lt; QUANTITY_THRESHOLD else \u0026#39;Normal\u0026#39; } s3_key = f\u0026#39;reports/{product_id}_{timestamp}.json\u0026#39; s3.put_object( Bucket=BUCKET_NAME, Key=s3_key, Body=json.dumps(report) ) print(f\u0026#34;Successfully uploaded to S3: {s3_key}\u0026#34;) # Gửi cảnh báo qua SNS nếu số lượng thấp if quantity \u0026lt; QUANTITY_THRESHOLD: message = f\u0026#34;Cảnh báo: Sản phẩm {product_id} tại kho {warehouse_id} có số lượng thấp ({quantity}) vào thời điểm {timestamp}.\u0026#34; sns.publish( TopicArn=SNS_TOPIC_ARN, Message=message, Subject=\u0026#39;Cảnh báo Hàng tồn kho Thấp\u0026#39; ) print(f\u0026#34;Sent SNS alert for low inventory\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;Xử lý dữ liệu thành công\u0026#39;) } except Exception as e: print(f\u0026#34;Lỗi: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(f\u0026#34;Lỗi: {str(e)}\u0026#34;) } Click Deploy to update Lambda "
 },
 {
-	"uri": "//localhost:1313/3-lambda/",
+	"uri": "/3-lambda/",
 	"title": "Setting Up and Deploying Lambda",
 	"tags": [],
 	"description": "",
 	"content": "In this step, we will configure Lambda.\nContent 3.1. Create Lambda function 3.2. Write processing code for Lambda\n"
 },
 {
-	"uri": "//localhost:1313/4-iot-core/",
+	"uri": "/4-iot-core/",
 	"title": "AWS IoT Core Configuration",
 	"tags": [],
 	"description": "",
 	"content": "To receive data from the automatic sensor source, we need to configure AWS IoT Core.\nAccess the AWS IoT Core management console.\nCreate Thing Select Thing Click on Create thing In the Number of thing to create section Select Create single thing Click Next When the Specify thing properties section appears In the Thing name field, enter InventorySensor Click Next In the Device certificate section, select Auto-generate a new certificate Click Next Click create thing Download the files in the Download certificates and key table to your device Create policies In the Security section, select Policies\nChoose Create policy\nIn Policy name, enter IoTInventoryPolicy\nIn Policy action:\nSelect iot:Connect\nSelect iot:Publish\nSelect iot:Subscribe\nSelect iot:Receive\nIn Policy resource, enter arn:aws:sns:us-east-1:922456364996:InventoryAlerts\nSelect Certificates\nClick on the Certificates of the project\nChoose Action and select Attach policy\nIn Policies, select IoTInventoryPolicy Choose Attach policies Continue by selecting Attach to things In Things, select InventorySensor1 Choose Attach to thing Create a rule Select Message routing Select Rule Select Create rule In Rule name, enter InventoryRule Select Next In SQL statement, enter SELECT * FROM \u0026lsquo;inventory/sensor1/data\u0026rsquo; Select Next In Action1, select Lambda In Lambda function, select ProcessInventoryData In Lambda function version, select $LATEST Select Next Select Create "
 },
 {
-	"uri": "//localhost:1313/5-sns/",
+	"uri": "/5-sns/",
 	"title": "Create SNS",
 	"tags": [],
 	"description": "",
 	"content": "Create SNS Access the SNS service management interface Click Topic. Click Create topic. On the Create Topic page. In the Type section, select Standard. In the Name section, enter: InventoryAlerts. Click Create Topic. Create Subscriptions Click Subscriptions\nSelect Create Subscriptions\nWhen the Create Subscriptions section appears\nIn Topic ARN, select arn:aws:sns:us-east-1:922456364996:InventoryAlerts:f2b3d4d3-794d-42f4-a76e-5974a6514506\nIn Protocol, select Email\nIn Endpoint, enter the email to receive alerts.\nSelect Create Subscriptions\nCheck the registered SNS email to activate. "
 },
 {
-	"uri": "//localhost:1313/6-s3/",
+	"uri": "/6-s3/",
 	"title": "S3 Setup",
 	"tags": [],
 	"description": "",
 	"content": " Access the S3 service management interface Select Create bucket In Bucket name, enter iot-log-2025 Click on the Block all public access checkbox Scroll to the bottom of the page and select Create bucket "
 },
 {
-	"uri": "//localhost:1313/7-demo/",
+	"uri": "/7-demo/",
 	"title": "Experimental Results",
 	"tags": [],
 	"description": "",
 	"content": " Run the simulation sensor Open Terminal and navigate to the directory of the file sensor_simulator.py Run the command: python sensor_simulator.py\nCheck data in AWS IoT Access the AWS IoT Core management console Select MQTT test client In the Topic filter, enter inventory/sensor1/data Click Subscribe Click Publish Scroll down to see the data received from the sensor device sent to IoT Core. Check logs in CloudWatch Access the CloudWatch service management interface Select Log groups Choose /aws/lambda/ProcessInventoryData In Log Stream, select the most recently updated log stream\nCheck data in DynamoDB Access the DynamoDB service management interface Select Explore items Choose the Inventory table Click Run; the Table: Inventory - Items returned section will contain all the data sent from the sensors. Check Gmail Open the Gmail account registered for the SNS service SNS will send alerts to the email when a product is received with a quantity lower than 20.\n"
 },
 {
-	"uri": "//localhost:1313/8-video-demo/",
+	"uri": "/8-video-demo/",
 	"title": "Video Demo",
 	"tags": [],
 	"description": "",
 	"content": " Video demo of lab results\nIn the Video Demo section, you can see the results of the lab, the data sent from the sensor to IoT Core, Lambda processing the tasks, and SNS sending notifications via email if there is data exceeding the allowed threshold.\n**Demo result link: here\n"
 },
 {
-	"uri": "//localhost:1313/9-clear/",
+	"uri": "/9-clear/",
 	"title": "Clean Up Resources",
 	"tags": [],
 	"description": "",
 	"content": " Clean up IAM service In the search bar, type IAM On the IAM service page, select Role from the left Navigation Panel On the Roles page, search for Lambda and check the Lambda box Click the Delete button, enter the Role name: LambdaAnalyzeRole\nClean up Lambda service In the search bar, type Lambda On the Lambda service page, select Function from the left Navigation Panel Check ProcessInventoryData Select Actions, then choose Delete In the Delete function prompt, type confirm Clean up the DynamoDB service In the search bar, type DynamoDB On the DynamoDB service page, select Table from the left Navigation Panel Check Inventory Click Delete, enter confirm Clean up the S3 service In the search bar, type S3 On the S3 service page, select General purpose buckets from the left Navigation Panel Check iot-log-2025 Click Empty, enter permanently delete Click Delete, enter iot-log-2025 Clean up AWS IoT Core In the search bar, enter AWS IoT Core On the AWS IoT Core service page, select Things from the left Navigation Panel Select InventorySensor1 Click Delete, enter InventorySensor1 On the AWS IoT Core service page, select Rules from the left Navigation Panel Select InventoryRule Click Delete, enter InventoryRule On the AWS IoT Core service page, select Policies from the left Navigation Panel Select IoTInventoryPolicy Click Delete, enter IoTInventoryPolicy In the AWS IoT Core service page, select Certificates from the left Navigation Panel. Select 7fa53e8ed2f2f2f0937741775116a7061656dc2ff0b7b66c33085435a223a63e. Click Action, select Delete, and enter delete. "
 },
 {
-	"uri": "//localhost:1313/categories/",
+	"uri": "/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/",
+	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
