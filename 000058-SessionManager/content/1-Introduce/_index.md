@@ -18,3 +18,5 @@ The main features of AWS IoT Core include:
 - Easily integrates with other services such as Amazon Kinesis, Amazon S3, Amazon DynamoDB, Amazon Lambda, and AWS Machine Learning for data analysis and processing.
   
 With these features, AWS IoT Core becomes an ideal platform for building and deploying large-scale IoT applications.
+
+![VPC](/images/sodo.jpg)

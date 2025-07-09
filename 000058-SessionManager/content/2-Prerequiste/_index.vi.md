@@ -6,6 +6,8 @@ chapter : false
 pre : " <b> 2. </b> "
 ---
 
+![VPC](/images/sodo.jpg)
+
 {{% notice info %}}
 Bạn cần tạo sẵn 1 giả lập cảm biến để thực hiện bài thực hành này.
 {{% /notice %}}

@@ -18,3 +18,5 @@ VCác tính năng chính của AWS IoT Core bao gồm:
 - Có thể tích hợp dễ dàng với các dịch vụ khác như Amazon Kinesis, Amazon S3, Amazon DynamoDB, Amazon Lambda, và AWS Machine Learning để phân tích và xử lý dữ liệu.
 
 Nhờ vào các tính năng này, AWS IoT Core trở thành nền tảng lý tưởng cho việc xây dựng và triển khai các ứng dụng IoT quy mô lớn.
+
+![VPC](/images/sodo.jpg)
